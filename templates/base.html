@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The base page</title>
+    <link rel="stylesheet"href="/static/bower_components/editor.md/css/editormd.css" />
+    <script src="/static/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/static/bower_components/editor.md/editormd.min.js"></script>
+</head>
+
+<body>
+    {% if True %}
+        <h3>test</h3>
+    {% endif %}
+    <div id="test-editormd" class="editormd editormd-vertical" width="90%" height="960px"></div>
+    {% block MainBody %}
+        <p>ttt</p>
+    {% endblock %}
+</body>
+</html>
