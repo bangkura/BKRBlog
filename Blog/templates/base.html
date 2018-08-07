@@ -4,18 +4,37 @@
     <meta charset="UTF-8">
     <title>The base page</title>
     {% load static %}
-    <link rel="stylesheet"href="{% static "bower_components/editor.md/css/editormd.css" %}" />
-    <script src="{% static "admin/js/vendor/jquery/jquery.js" %}"></script>
-    <script src="{% static "bower_components/editor.md/editormd.min.js" %}"></script>
+    <link rel="stylesheet"href="{% static "vendor/editor.md/css/editormd.min.css" %}" />
+    <link rel="stylesheet"href="{% static "vendor/editor.md/lib/codemirror/codemirror.min.css" %}" />
+    <script src="{% static "vendor/jquery/dist/jquery.min.js" %}"></script>
+    <script src="{% static "vendor/editor.md/editormd.js" %}"></script>
 </head>
 
 <body>
     {% if True %}
         <h3>testss</h3>
     {% endif %}
-    <div id="test-editormd" class="editormd editormd-vertical" width="90%" height="960px"></div>
+    <div id="editormd">
+        <textarea style="display:none;">### Hello Editor.md !</textarea>
+    </div>
     {% block MainBody %}
         <p>tttsss</p>
     {% endblock %}
 </body>
+
+<script type="text/javascript">
+  $(function() {
+        var editor = editormd("editormd", {
+            path : "../lib/" // Autoload modules mode, codemirror, marked... dependents libs path
+        });
+
+        /*
+        // or
+        var editor = editormd({
+            id   : "editormd",
+            path : "../lib/"
+        });
+        */
+    });
+</script>
 </html>
