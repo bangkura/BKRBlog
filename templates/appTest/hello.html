@@ -1,0 +1,29 @@
+{% extends "../base.html" %}
+
+{% block MainBody %}
+    <div class="blog-container">
+        <form action="" method="post">
+            <div>输入文章标题</div>
+            <textarea name="" id="" cols="30" rows="1"></textarea>
+            <div>输入文章简介</div>
+            <textarea name="" id="" cols="30" rows="5"></textarea>
+            <div>选择文章类型</div>
+            <select name="" id="">
+                <option value="">123</option>
+                <option value="">1234</option>
+            </select>
+            <div id="editormd">
+                <textarea style="display:none;">### Hello Editor.md !</textarea>
+            </div>
+        </form>
+    </div>
+
+    <script type="text/javascript">
+      $(function() {
+            var editor = editormd("editormd", {
+                path : "/static/vendor/editor.md/lib/",
+                height : "500px"
+            });
+        });
+    </script>
+{% endblock %}

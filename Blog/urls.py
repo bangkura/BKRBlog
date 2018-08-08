@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 
-from apptest import view
+from api import view
 
 urlpatterns = [
     url(r'^$', view.hello),
