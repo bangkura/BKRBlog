@@ -1,35 +1,163 @@
 .blog-edit-container {
     margin-top: -60px;
     padding-top: 60px;
-    height: 100%;
-    display: flex;
     overflow: hidden;
+    height: -webkit-calc(100% - 60px);
+    height: -moz-calc(100% - 60px);
+    height: calc(100% - 60px);
+    color: #b3b3b3;
+    display: flex;
 }
 
 html, body {
-    height: 100%;
     background-color: #3d3d3d;
-    overflow: hidden;
+    height: 100%;
 }
 
 .blog-edit-left-panel {
-    width: 20%;
+    height:100%;
+    width: 18%;
     background-color: #2e2e2e;
     z-index: 0;
 }
 
 .blog-edit-middle-panel {
+    height:100%;
     width: 25%;
-    background-color: rgba(0,0,0,.65);
+    background-color: #3d3d3d;
     z-index: 0;
+    border-right: 1px solid #2e2e2e;
+    overflow: scroll;
 }
 
 .blog-edit-right-panel {
-    width: 55%;
-    background-color: rgba(0,0,0,.65);
+    height:100%;
+    width: 57%;
+    background-color: #2e2e2e;
     z-index: 0;
+    overflow: scroll;
+    color: #b3b3b3;
 }
 
-#title-input {
-    width: 100%;
+
+.blog-edit-right-panel input{
+    border: none;
+    outline:none;
+    background-color: #3d3d3d;
+    height: 30px;
+    font-size: 30px;
+    color: #b3b3b3;
+    margin-bottom: 1px;
+
+    padding: 10px;
+    width: -webkit-calc(100% - 20px);
+    width: -moz-calc(100% - 20px);
+    width: calc(100% - 20px);
+}
+
+.blog-edit-right-panel button {
+    border: #b3b3b3 1px solid;
+    border-radius: 3px;
+    height: 40px;
+    margin: 5px 10px 5px 0;
+    outline: none;
+    background-color: #2e2e2e;
+    color: #b3b3b3;
+    padding: 0 20px;
+}
+
+.blog-edit-right-panel button:hover {
+    background-color: #4a4a4a;
+}
+
+.blog-edit-right-panel button:active {
+    background-color: #6e6e6e;
+}
+
+.blog-edit-right-panel .button-active {
+    background-color: #6e6e6e;
+}
+
+.blog-edit-right-panel .button-default {
+    background-color: #2e2e2e;
+}
+
+.editormd {
+    margin: 0;
+}
+
+.new-blog {
+    margin: 20px 0 20px 20px;
+}
+
+.new-blog:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.blog-edit-middle-panel ul {
+    padding: 0;
+    cursor: pointer;
+}
+
+.blog-edit-middle-panel ul li{
+    height: 60px;
+    padding: 15px 10px 15px 60px;
+}
+
+.blog-edit-middle-panel ul li.selected{
+    border-left: #ec7259 5px solid;
+    background-color: #2e2e2e;
+}
+
+.blog-edit-middle-panel span {
+    margin-right: 40px;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+
+.blog-edit-middle-panel .edit-btn {
+    float: right;
+}
+
+.index-btn {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.index-btn a {
+    color: #ec7259;
+    display: inline-block;
+    border: 1px #ec7259 solid;
+    height: 50px;
+    width: 180px;
+    line-height: 50px;
+    border-radius: 50px;
+}
+
+.new-folder-btn {
+    padding-left: 20px;
+    margin: 15px 0 10px 0;
+}
+
+.new-folder-btn:hover {
+    color: white;
+    cursor: pointer;
+}
+
+ul {
+    padding: 0;
+}
+
+.blog-edit-left-panel li {
+    padding-left: 20px;
+    line-height: 40px;
+}
+
+.blog-edit-left-panel li.selected {
+    border-left: #ec7259 3px solid;
+    background-color: #262626;
 }

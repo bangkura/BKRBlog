@@ -4,10 +4,39 @@
     {% load static %}
     <link rel="stylesheet" href="{% static "css/edit.css" %}">
     <div class="blog-edit-container">
-        <div class="blog-edit-left-panel"></div>
-        <div class="blog-edit-middle-panel"></div>
+        <div class="blog-edit-left-panel">
+            <div class="index-btn">
+                <a href="">回到首页</a>
+            </div>
+            <div class="new-folder-btn">
+                    新建文集
+            </div>
+            <ul>
+                <li>fsadf</li>
+                <li class="selected">fsadf</li>
+            </ul>
+        </div>
+        <div class="blog-edit-middle-panel">
+            <div class="new-blog">新建文章</div>
+            <ul>
+                <li>
+                    <span class="">第一篇文章</span>
+                </li>
+                <li class="selected">
+                    <span >无标题文章</span>
+                    <div class="edit-btn">gear</div>
+                </li>
+            </ul>
+            <div class="new-blog">在下方新建文章</div>
+        </div>
         <div class="blog-edit-right-panel">
-            <input id="title-input" type="text">
+            <input id="title-input" type="text" placeholder="文章标题">
+            <input id="title-input" type="text" style="font-size: 15px;" placeholder="文章简介">
+            <div>
+                <button id="preview-btn" class="button-default">实时预览</button>
+                <button id="toolbar-btn" class="button-active">工具栏</button>
+                <button id="fullscreen-btn" class="button-default">全屏模式</button>
+            </div>
              <div id="editormd">
                 <textarea style="display:none;">### Hello Editor.md !</textarea>
             </div>
@@ -15,17 +44,47 @@
     </div>
 
     <script type="text/javascript">
+    var editor;
         $(function() {
-            var rect = $('.blog-edit-right-panel')[0].getBoundingClientRect()
-            console.log(" " + $('.blog-edit-right-panel').width());
-            var editor = editormd("editormd", {
+            editor = editormd("editormd", {
                 path : "/static/vendor/editor.md/lib/",
-                height : $("body").height() + 'px',
+                height : $('body').height() - 215 + 'px',
                 syncScrolling : "single",
                 width: '100%',
                 theme: 'dark',
                 editorTheme : "pastel-on-dark",
+                watch: false
             });
+
+            $('#preview-btn').click(function() {
+                var btn = $('#preview-btn');
+                if(btn.hasClass("button-default")) {
+                    btn.removeClass("button-default");
+                    btn.addClass("button-active");
+                    editor.watch();
+                } else {
+                    btn.remove("button-active");
+                    btn.addClass("button-default");
+                    editor.unwatch();
+                }
+            });
+
+            $('#toolbar-btn').click(function() {
+                var btn = $('#toolbar-btn');
+                if(btn.hasClass("button-default")) {
+                    btn.removeClass("button-default");
+                    btn.addClass("button-active");
+                    editor.showToolbar();
+                } else {
+                    btn.remove("button-active");
+                    btn.addClass("button-default");
+                    editor.hideToolbar();
+                }
+            });
+
+            $('#fullscreen-btn').click(function() {
+                editor.fullscreen();
+            })
         });
     </script>
 {% endblock %}
