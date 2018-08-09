@@ -12,19 +12,33 @@
                     新建文集
             </div>
             <ul>
-                <li>fsadf</li>
                 <li class="selected">fsadf</li>
+                <li>fsadf</li>
             </ul>
         </div>
         <div class="blog-edit-middle-panel">
-            <div class="new-blog">新建文章</div>
+            <div class="new-blog"><i class="fas fa-plus-circle"></i><span>新建文章</span></div>
             <ul>
-                <li>
-                    <span class="">第一篇文章</span>
-                </li>
                 <li class="selected">
+                    <span class="">第一篇文章</span>
+                    <div class="edit-btn">
+                        <i class="fas fa-cog"></i>
+                        <div class="dropdown-menu" style="display: none;">
+                            <ul>
+                                <li>
+                                    123
+                                </li>
+                                <li>
+                                    21
+                                </li>
+                            </ul>
+                            <div class="trangle">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="">
                     <span >无标题文章</span>
-                    <div class="edit-btn">gear</div>
                 </li>
             </ul>
             <div class="new-blog">在下方新建文章</div>
@@ -85,6 +99,32 @@
             $('#fullscreen-btn').click(function() {
                 editor.fullscreen();
             })
+
+            $('.blog-edit-middle-panel ul').click(function(e) {
+                if(!$(e.target).is($('li'))) {
+                    return;
+                }
+                $('.blog-edit-middle-panel ul li').removeClass('selected');
+                $(e.target).addClass('selected');
+                $(e.target).append($('.blog-edit-middle-panel .edit-btn'))
+            })
+
+            $('.blog-edit-left-panel ul').click(function(e) {
+                 if(!$(e.target).is($('li'))) {
+                    return;
+                }
+                $('.blog-edit-left-panel ul li').removeClass('selected');
+                $(e.target).addClass('selected');
+            })
+
+            $('.edit-btn').click(function(e) {
+                console.log($('.dropdown-menu').css('display'))
+                if($('.dropdown-menu').css('display') == 'none')
+                    $('.dropdown-menu').css('display', 'block');
+                else
+                    $('.dropdown-menu').css('display', 'none');
+                e.stopPropagation();
+            });
         });
     </script>
 {% endblock %}

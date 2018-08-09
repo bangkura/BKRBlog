@@ -84,6 +84,13 @@ html, body {
 
 .editormd {
     margin: 0;
+    height:  -webkit-calc(100% - 155px) !important;
+    height: -moz-calc(100% - 155px) !important;
+    height: calc(100% - 155px) !important;
+}
+
+.blog-edit-right-panel .editormd-fullscreen {
+    height: 100% !important;
 }
 
 .new-blog {
@@ -95,24 +102,28 @@ html, body {
     cursor: pointer;
 }
 
-.blog-edit-middle-panel ul {
+.blog-edit-middle-panel > ul {
     padding: 0;
     cursor: pointer;
 }
 
-.blog-edit-middle-panel ul li{
+.blog-edit-middle-panel > ul > li{
     height: 60px;
     padding: 15px 10px 15px 60px;
+    box-shadow: 0 0 0 1px #2e2e2e;
 }
 
-.blog-edit-middle-panel ul li.selected{
+.blog-edit-middle-panel > ul > li:hover {
+    background-color: #2e2e2e;
+}
+
+.blog-edit-middle-panel > ul > li.selected{
     border-left: #ec7259 5px solid;
     background-color: #2e2e2e;
 }
 
 .blog-edit-middle-panel span {
     margin-right: 40px;
-    display: block;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -152,12 +163,56 @@ ul {
     padding: 0;
 }
 
-.blog-edit-left-panel li {
+.blog-edit-left-panel > ul > li {
     padding-left: 20px;
     line-height: 40px;
 }
 
-.blog-edit-left-panel li.selected {
+.blog-edit-left-panel > ul > li:hover {
+    cursor: pointer;
+    background-color: #262626;
+}
+
+.blog-edit-left-panel > ul > li.selected {
     border-left: #ec7259 3px solid;
     background-color: #262626;
+}
+
+i {
+    padding-right: 5px;
+}
+
+.edit-btn {
+    line-height: 60px;
+    position: relative;
+    width: 30px;
+}
+
+.editormd-preview-close-btn {
+    display: none;
+}
+
+.dropdown-menu ul li{
+    box-shadow: none;
+    height:40px;
+    line-height: 40px;
+     box-shadow: 0 0 0 0.5px #2e2e2e;
+    padding: 0 10px;
+}
+
+.dropdown-menu {
+    width: 100px;
+    right: 5px;
+    position: absolute;
+    background-color: #4a4a4a;
+}
+
+.trangle {
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    top: -20px;
+    right: 10px;
+    border: solid black 10px;
+    border-color: rgba(0,0,0,0) rgba(0,0,0,0) #4a4a4a rgba(0,0,0,0);
 }
