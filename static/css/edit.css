@@ -35,7 +35,7 @@ html, body {
     width: 57%;
     background-color: #2e2e2e;
     z-index: 0;
-    overflow: scroll;
+    overflow: hidden;
     color: #b3b3b3;
 }
 
