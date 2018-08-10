@@ -41,15 +41,19 @@
                     <span >无标题文章</span>
                 </li>
             </ul>
-            <div class="new-blog">在下方新建文章</div>
+            <div class="new-blog"><i class="fas fa-plus"></i><span>在下方新建文章</span></div>
         </div>
         <div class="blog-edit-right-panel">
             <input id="title-input" type="text" placeholder="文章标题">
-            <input id="title-input" type="text" style="font-size: 15px;" placeholder="文章简介">
-            <div>
-                <button id="preview-btn" class="button-default">实时预览</button>
-                <button id="toolbar-btn" class="button-active">工具栏</button>
-                <button id="fullscreen-btn" class="button-default">全屏模式</button>
+            <input id="title-input" type="text" style="font-size: 15px; margin-bottom:0;" placeholder="文章简介" >
+            <div class="btn-panel">
+                <div id="preview-btn" class="editor-btn"><i class="fas fa-eye"></i></div>
+                <div id="toolbar-btn" class="editor-btn selected"><i class="fas fa-wrench"></i></div>
+                <div id="fullscreen-btn" class="editor-btn"><i class="fa fa-arrows-alt"></i></div>
+                <div id="post-btn" class="editor-btn" style="float:right"><i class="fa fa-mail-forward"></i><span style="padding-left: 5px;">发布文章</span></div>
+{#                <button id="preview-btn" class="button-default">实时预览</button>#}
+{#                <button id="toolbar-btn" class="button-active">工具栏</button>#}
+{#                <button id="fullscreen-btn" class="button-default">全屏模式</button>#}
             </div>
              <div id="editormd">
                 <textarea style="display:none;">### Hello Editor.md !</textarea>
@@ -72,27 +76,23 @@
 
             $('#preview-btn').click(function() {
                 var btn = $('#preview-btn');
-                if(btn.hasClass("button-default")) {
-                    btn.removeClass("button-default");
-                    btn.addClass("button-active");
-                    editor.watch();
-                } else {
-                    btn.remove("button-active");
-                    btn.addClass("button-default");
+                if(btn.hasClass("selected")) {
+                    btn.removeClass("selected");
                     editor.unwatch();
+                } else {
+                    btn.addClass("selected");
+                    editor.watch();
                 }
             });
 
             $('#toolbar-btn').click(function() {
                 var btn = $('#toolbar-btn');
-                if(btn.hasClass("button-default")) {
-                    btn.removeClass("button-default");
-                    btn.addClass("button-active");
-                    editor.showToolbar();
-                } else {
-                    btn.remove("button-active");
-                    btn.addClass("button-default");
+                if(btn.hasClass("selected")) {
+                    btn.removeClass("selected");
                     editor.hideToolbar();
+                } else {
+                    btn.addClass("selected");
+                    editor.showToolbar();
                 }
             });
 
