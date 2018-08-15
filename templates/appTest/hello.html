@@ -130,6 +130,20 @@
             $(document).click(function() {
                 $('.dropdown-menu').css('display', 'none');
             })
+
+            $('#post-btn').click(
+                function() {
+                    $.ajax({
+                        type: 'POST',
+                        url: "/save",
+                        async: false,
+                        data: {data : 'test'},
+                        complete: function() {
+                            return;
+                        }
+                    })
+                }
+            )
         });
     </script>
 {% endblock %}

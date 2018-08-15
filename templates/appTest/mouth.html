@@ -1,0 +1,34 @@
+{% extends "../base.html" %}
+
+{% block MainBody %}
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static "css/test.css" %}">
+
+    <style>
+        .mouth {
+            border: solid 20px #e5d017;
+            width: 0;
+            height: 0;
+            display: inline-block;
+            border-radius: 200px;
+            border-right-color: rgba(0, 0, 0, 0);
+            animation: 0.5s rainbow infinite;
+            transition-timing-function: step-end;
+        }
+
+        @keyframes rainbow {
+          0% {  border-right-color: rgba(0, 0, 0, 0); }
+          50% {  border-right-color: #e5d017; }
+          100% {  border-right-color: rgba(0, 0, 0, 0); }
+        }
+
+
+    </style>
+
+
+    <div style="line-height: 2em;font-family: 'Bree Serif', serif; background-color: red; font-weight: bold; font-size: 1.2em">
+        Bangkura
+    </div>
+
+{% endblock %}
